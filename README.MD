@@ -25,6 +25,12 @@
 
 ![todolist](resultImg/createresult.png)
 
+###### 错误信息提示1：表单字段不能为空
+![todolist](resultImg/createerror1.png)
+
+###### 错误信息提示2：已存在指定id的todo任务
+![todolist](resultImg/createerror2.png)
+
 ##### 返回一个指定ID的Todo任务  
 ![todolist](resultImg/select.png)
 
