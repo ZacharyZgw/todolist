@@ -4,5 +4,30 @@
 ##### 
     $ python 3.7
     $ django 2.2
-    $ sqlite3
+    $ sqlite3数据库
 ## 结果截图
+### Restful API
+#### 一级路由
+#####
+    $ path('todo/',include('todo.urls'))
+#### 二级路由
+#####
+    $ path('list/',views.index,name = "todolist")
+    $ path('add/',views.add,name = 'add')
+    $ path('select/<int:todo_id>/',views.select,name='select')
+    $ path('delete/<int:todo_id>/',views.delete,name='delete')
+#### 运行结果
+##### 返回所有Todo任务  
+![todolist](resultImg/todolist.png)
+  
+##### 创建一个新的Todo任务  
+![todolist](resultImg/createtodo.png)
+
+![todolist](resultImg/createresult.png)
+
+##### 返回一个指定ID的Todo任务  
+![todolist](resultImg/select.png)
+
+##### 删除一个Todo任务
+![todolist](resultImg/delete.png)
+
