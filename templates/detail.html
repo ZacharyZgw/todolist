@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todo详情</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/templatemo-style.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/mystyle.min.css">
+</head>
+<body>
+<div class="templatemo-content col-1 light-gray-bg" style="height: 100%" >
+    <div class="templatemo-top-nav-container">
+        <nav class="templatemo-top-nav col-lg-12 col-md-12" style="margin-left: 200px">
+            <ul class="text-uppercase">
+                <li><a href="/todo/list/" class="active">首页</a></li>
+                <li><a>Todo详细信息</a></li>
+            </ul>
+        </nav>
+        <div style="margin-top: 30px"></div>
+        <div class="row" style="margin-left:200px">
+            <div class="col-md-10 ">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><span>TodoList</span>
+                        <div role="presentation" class="dropdown" style="width:100px;float: right;top: -5px">
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <table class="table table-striped table-hover ">
+                            <thead>
+                                <th class="text-center">id</th>
+                                <th class="text-center">content</th>
+                                <th class="text-center">createTime</th>
+                            </thead>
+                            <tbody>
+                            {% if data %}
+                                <tr>
+                                    <th class="text-center">{{ data.todo_id }}</th>
+                                    <td class="text-center">{{ data.content }}</td>
+                                    <td class="text-center">{{ data.createtime }}</td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <th class="text-center">no todo task</th>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

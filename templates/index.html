@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/templatemo-style.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/mystyle.min.css">
+
+</head>
+<body>
+<div class="templatemo-content col-1 light-gray-bg" style="height: 100%" >
+    <div class="templatemo-top-nav-container">
+        <nav class="templatemo-top-nav col-lg-12 col-md-12" style="margin-left: 200px">
+            <ul class="text-uppercase">
+                <li><a href="/todo/list/" class="active">首页</a></li>
+                <li><a href="/todo/add/" >新建Todo</a></li>
+            </ul>
+        </nav>
+        <div style="margin-top: 30px"></div>
+        <div class="row" style="margin-left:200px">
+            <div class="col-md-10 ">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading"><span>TodoList {% if message %}<strong style="color: red">{{ message }}</strong>{% endif %}</span>
+                        <div role="presentation" class="dropdown" style="width:100px;float: right;top: -5px">
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <table class="table table-striped table-hover ">
+                            <thead>
+                                <th class="text-center">id</th>
+                                <th class="text-center">content</th>
+                                <th class="text-center">createTime</th>
+                            </thead>
+                            <tbody>
+                            {% if data %}
+                            {% for item in data %}
+                                <tr>
+                                    <th class="text-center">{{ item.todo_id }}</th>
+                                    <td class="text-center">{{ item.content }}</td>
+                                    <td class="text-center">{{ item.createtime }}</td>
+                                    <td>
+                                        <div>
+                                            <input type="hidden" name="todo_id" value="{{ item.todo_id }}">
+                                            <div role="presentation" class="dropdown">
+                                                <button class=" btn btn-primary block full-width m-b dropdown-toggle " data-toggle="dropdown" href="#">
+                                                    操作<span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu " role="menu" >
+                                                    <li><a href="/todo/delete/{{ item.todo_id }}" onclick="return confirm('确认删除?')">删除</a></li>
+                                                    <li><a href="/todo/select/{{ item.todo_id }}/">查看</a>
+                                                    </li>
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            {% else %}
+                                <tr>
+                                    <th class="text-center">no todo task</th>
+                                </tr>
+                            {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/jquery-3.4.1.min.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+</body>
+</html>
